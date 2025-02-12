@@ -1,7 +1,6 @@
 import { CARD_BASE_IMG } from "../utils/constants";
 
 const MovieCard = ({baseData}) => {
-    console.log(baseData);
     const {backdrop_path, original_title} = baseData;
 
     return (

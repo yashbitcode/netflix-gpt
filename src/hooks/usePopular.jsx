@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { addNowPlaying } from "../utils/moviesSlice";
+import { addPopular } from "../utils/moviesSlice";
 import { API_KEY } from "../utils/constants";
 
-const useTrending = () => {
+const usePopular = () => {
     const dispatch = useDispatch();
 
     const fetchData = async () => {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`);
+        const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`);
         const data = await response.json();
 
-        dispatch(addNowPlaying(data));
+        dispatch(addPopular(data));
     };
 
     useEffect(() => {
@@ -18,4 +18,4 @@ const useTrending = () => {
     }, []);
 };
 
-export default useTrending;
+export default usePopular;
