@@ -12,8 +12,8 @@ dist
 .firebaserc
 firebase.json
 /src/utils/firebase.jsx
-/src/utils/constants.jsx
 dist-ssr
+.env
 *.local
 
 # Editor directories and files

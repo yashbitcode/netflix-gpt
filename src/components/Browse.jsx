@@ -5,8 +5,12 @@ import useTopRated from "../hooks/useTopRated";
 import useUpcoming from "../hooks/useUpcoming";
 import PrimaryCont from "./PrimaryCont";
 import SecondaryCont from "./SecondaryCont";
+import GPTSearch from "./GPTSearch";
+import { useSelector } from "react-redux";
 
 const Browse = () => {
+    const gptSearchView = useSelector((store) => store.gptSearch.gptSearchToggle);
+
     useNowPlaying();
     usePopular();
     useTopRated();
@@ -15,8 +19,14 @@ const Browse = () => {
     return (
         <>
             <Header />
-            <PrimaryCont />
-            <SecondaryCont />
+            {
+                gptSearchView ? <GPTSearch /> : (
+                    <>
+                        <PrimaryCont />
+                        <SecondaryCont />
+                    </>
+                )
+            }
         </>
     );
 };

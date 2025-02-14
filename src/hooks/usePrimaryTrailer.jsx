@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-import { API_KEY } from "../utils/constants";
 import { addPrimaryMovieTrailer } from "../utils/moviesSlice";
 import { useEffect } from "react";
 
@@ -7,7 +6,7 @@ const usePrimaryTrailer = (movieId) => {
     const dispatch = useDispatch();
 
     const fetchTrailer = async () => {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}`);
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${import.meta.env.VITE_TMDB_API_KEY}`);
         const data = await response.json();
 
         const allTrailers = data.results.filter((el) => el.type === "Trailer");
